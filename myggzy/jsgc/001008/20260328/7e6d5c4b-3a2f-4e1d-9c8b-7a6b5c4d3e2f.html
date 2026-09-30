@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>绵阳市公共资源交易服务中心</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- 全局重置 ---------- */
+    body,
+    div,
+    h3,
+    p,
+    td,
+    th {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    h3 {
+      font-weight: normal;
+    }
+
+    body {
+      color: #333;
+      font-size: 14px;
+      /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
+      font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- 主容器 ---------- */
+    .container {
+      width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ---------- 公告框 ---------- */
+    .infor-box {
+      margin-bottom: 32px;
+      padding: 0 40px 30px 40px;
+      border-top: 2px solid #6dbdff;
+      background-color: #fff;
+      position: relative;
+    }
+
+    /* ---------- 公告标题 ---------- */
+    .infor-tt {
+      padding-top: 27px;
+      padding-bottom: 30px;
+      line-height: 43px;
+      font-size: 24px;
+      font-family: "Noto Sans SC", "SourceHanSansCN-Medium", "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-weight: 500;
+      color: #333;
+      text-align: center;
+    }
+
+    /* ---------- 信息栏灰色条 ---------- */
+    .infor-tip {
+      height: 50px;
+      font-size: 0;
+      background-color: #f7f7f7;
+      text-align: center;
+    }
+
+    .tip-text {
+      margin-left: 80px;
+      max-width: 250px;
+      display: inline-block;
+      vertical-align: top;
+      line-height: 50px;
+      font-size: 16px;
+      color: #999;
+    }
+
+    .tip-text.max {
+      max-width: 185px;
+    }
+
+    .tip-text.esp {
+      position: relative;
+    }
+
+    /* 右侧竖线分隔符 */
+    .tip-text.esp::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      margin-left: -1px;
+      top: 50%;
+      margin-top: -9px;
+      width: 2px;
+      height: 18px;
+      background-color: #3d7adc;
+    }
+
+    .tip-text:first-child {
+      margin-left: 0;
+    }
+
+    .opt-name {
+      margin-left: 33px;
+      color: #3d7adc;
+      cursor: pointer;
+    }
+
+    .opt-name:first-child {
+      margin-left: 0;
+    }
+
+    /* ---------- 正文区域 ---------- */
+    .infor-con {
+      padding-top: 14px;
+    }
+
+    .sub-title {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    /* ---------- 精准还原 Excel 排版的表格样式 ---------- */
+    .excel-layout-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* 1. 顶部基本信息行：依照Excel，完全不要边框，靠左对齐，留出合适间距 */
+    .excel-meta-td {
+      border: none;
+      padding: 7px 0;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* 2. 中间核心数据网格：依照Excel，四周带 1px 纯黑细边框 */
+    .excel-grid-th {
+      border: 1px solid #000;
+      padding: 10px 8px;
+      text-align: center;
+      font-weight: normal;
+      /* Excel中表头字重为常规体 */
+      background-color: #fff;
+    }
+
+    .excel-grid-td {
+      border: 1px solid #000;
+      padding: 12px 8px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* 项目名称强制换行包裹器 */
+    .project-name-wrap {
+      display: inline-block;
+      text-align: center;
+      word-break: break-all;
+    }
+
+    /* 3. 底部时间公示行：依照Excel，只有顶部有一条黑细线隔开，四周无边框 */
+    .excel-time-td {
+      border: none;
+      border-top: 1px solid #000;
+      padding: 14px 0 0 0;
+    }
+
+    .time-flex {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* ---------- 附件列表 ---------- */
+    .file-box {
+      margin-top: 24px;
+      padding: 6px 0 8px 20px;
+      background-color: #f7f7f7;
+    }
+
+    .file-tt {
+      float: left;
+      height: 38px;
+      line-height: 38px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .file-con {
+      margin-left: 47px;
+      overflow: hidden;
+    }
+
+    .file-name {
+      float: left;
+      margin-right: 79px;
+      padding-left: 24px;
+      height: 38px;
+      line-height: 38px;
+      background: url(data:,) left center no-repeat;
+    }
+
+    .file-name>a {
+      font-size: 16px;
+      color: #53a9f5;
+      cursor: pointer;
+    }
+
+    .file-name:hover {
+      background-image: url(data:,);
+    }
+
+    .file-name:hover>a {
+      color: #ff9555;
+      text-decoration: underline;
+    }
+
+    /* ---------- 清除浮动 ---------- */
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .excel-meta-td {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="infor-box">
+      <div class="notice tabview">
+        <div class="notice-bd">
+
+          <h3 class="infor-tt">新型显示产业园A区电力增容及基础设施项目施工标段中标公示</h3>
+
+          <div class="infor-tip">
+            <p class="tip-text max text-overflow">信息来源：</p>
+            <p class="tip-text">信息时间：2026-03-28</p>
+            <p class="tip-text" id="viewGuid">阅读次数：<span id="infoViewCount">135</span></p>
+            <p class="tip-text esp">
+              <a class="opt-name" href="javascript:void(0)">打印</a>
+              <a class="opt-name" href="javascript:void(0)">关闭</a>
+            </p>
+          </div>
+
+          <div class="infor-con">
+            <div class="sub-title">中标结果公告</div>
+
+            <table class="excel-layout-table">
+              <tbody>
+                <tr>
+                  <td colspan="6" class="excel-meta-td">项目名称：新型显示产业园A区电力增容及基础设施项目</td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="excel-meta-td">招标人：绵阳新兴投资控股股份有限公司</td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="excel-meta-td">
+                    <span style="margin-right: 70px;">项目类别：施工</span>
+                    <span>招标方式：公开招标</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="excel-meta-td">项目地点：四川省绵阳科技城新区（高新区）</td>
+                </tr>
+                <tr>
+                  <td colspan="6" class="excel-meta-td" style="padding-bottom: 15px;">项目所在区域：四川省·绵阳市·科技城新区（高新区）
+                    建设面积：124900平方米</td>
+                </tr>
+
+                <tr>
+                  <th style="width: 18%;" class="excel-grid-th">序号</th>
+                  <th style="width: 25%;" class="excel-grid-th">项目名称</th>
+                  <th style="width: 20%;" class="excel-grid-th">中标单位</th>
+                  <th style="width: 12%;" class="excel-grid-th">项目经理</th>
+                  <th style="width: 12%;" class="excel-grid-th">中标价</th>
+                  <th style="width: 12%;" class="excel-grid-th">工期(天)</th>
+                </tr>
+                <tr>
+                  <td class="excel-grid-td">1</td>
+                  <td class="excel-grid-td">
+                    <div class="project-name-wrap">
+                      新型显示产业园A区电力<br>增容及基础设施项目
+                    </div>
+                  </td>
+                  <td class="excel-grid-td">四川九洲建筑工程有限责任公司</td>
+                  <td class="excel-grid-td"></td>
+                  <td class="excel-grid-td">201721612.13元</td>
+                  <td class="excel-grid-td">365</td>
+                </tr>
+
+                <tr>
+                  <td colspan="6" class="excel-time-td">
+                    <div class="time-flex">
+                      <div>公告开始时间：2026年3月28日</div>
+                      <div>公告结束时间2026年4月02日</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">发布媒体：全国公共资源交易平台（四川省）和全国公共资源交易平台（四川省-绵阳市）</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="file-box clearfix">
+            <p class="file-tt">附件:</p>
+            <div class="file-con">
+              <p class="file-name"><a href="javascript:void(0)" title="中标结果公示.pdf">中标结果公示.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="施工中标通知书.pdf">施工中标通知书.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="施工结果公告.pdf">施工结果公告.pdf</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
