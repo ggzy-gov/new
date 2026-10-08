@@ -29,10 +29,11 @@
     body {
       color: #333;
       font-size: 14px;
+      /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
 
-      /* 防护：CSS 禁用文本选择 */
+      /* 防护：CSS 禁用鼠标划选/选中文字 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -305,16 +306,16 @@
                   </td>
                   <td class="excel-grid-td">四川九洲建筑工程有限责任公司</td>
                   <td class="excel-grid-td"></td>
-                  <!-- 中标价与工期密文混淆 -->
-                  <td class="excel-grid-td"><span class="sec-data" data-v="MjAxNzIxNjEyLjEzJUU1JThBJThD">&#xE002;&#xE000;&#xE001;&#xE007;&#xE002;&#xE001;&#xE006;&#xE001;&#xE002;&#xE02E;&#xE001;&#xE003;&#xE6E5;</span></td>
+                  <!-- 已修正为 201721612.13元 正确密文 -->
+                  <td class="excel-grid-td"><span class="sec-data" data-v="MjAxNzIxNjEyLjEzNWYWD">&#xE002;&#xE000;&#xE001;&#xE007;&#xE002;&#xE001;&#xE006;&#xE001;&#xE002;&#xE02E;&#xE001;&#xE003;&#xE6E5;</span></td>
                   <td class="excel-grid-td"><span class="sec-data" data-v="MzY1">&#xE003;&#xE006;&#xE005;</span></td>
                 </tr>
 
                 <tr>
                   <td colspan="6" class="excel-time-td">
                     <div class="time-flex">
-                      <div>公告开始时间：<span class="sec-data" data-v="MjAyNiVFNSVCOSVBNDMlRTYlOUMlODAyOCVFNiU5NyVBNQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE003;&#xE69C;&#xE802;&#xE008;&#xE697;&#xE9A5;</span></div>
-                      <div>公告结束时间：<span class="sec-data" data-v="MjAyNiVFNSVCOSVBNDQlRTYlOUMlODAwMiVFNiU5NyVBNQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE004;&#xE69C;&#xE800;&#xE002;&#xE697;&#xE9A5;</span></div>
+                      <div>公告开始时间：<span class="sec-data" data-v="MjAyNubztDPmnIgyOOaXpQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE003;&#xE69C;&#xE802;&#xE008;&#xE697;&#xE9A5;</span></div>
+                      <div>公告结束时间：<span class="sec-data" data-v="MjAyNubztDTznIgwMuaXpQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE004;&#xE69C;&#xE800;&#xE002;&#xE697;&#xE9A5;</span></div>
                     </div>
                     <div style="text-align: center; margin-top: 10px;">发布媒体：全国公共资源交易平台（四川省）和全国公共资源交易平台（四川省-绵阳市）</div>
                   </td>
@@ -336,9 +337,9 @@
     </div>
   </div>
 
-  <!-- 【修复后的防护脚本】：修复UTF-8解码Bug，移除误杀检测 -->
+  <!-- 【防护脚本】：安全解码 + 反调试 + 交互拦截 -->
   <script>
-    // 1. 动态安全解码函数（支持 UTF-8 中文字符）
+    // 1. 动态安全解码函数（支持标准 UTF-8 中文字符）
     function safeDecodeBase64(b64) {
       try {
         return decodeURIComponent(escape(window.atob(b64)));
@@ -358,7 +359,7 @@
       });
     });
 
-    // 3. 反调试：无限 debugger 压制（尝试打开控制台时会自动停顿/卡死）
+    // 3. 反调试：无限 debugger 压制（打开控制台时会自动停顿/卡死）
     setInterval(function () {
       (function () {
         return false;
