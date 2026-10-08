@@ -29,11 +29,10 @@
     body {
       color: #333;
       font-size: 14px;
-      /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
 
-      /* 【防护 1】：CSS 禁用鼠标划选/选中文字 */
+      /* 防护：CSS 禁用文本选择 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -337,35 +336,34 @@
     </div>
   </div>
 
-  <!-- 【防护脚本】：反调试 + 动态解密 + 交互拦截 -->
+  <!-- 【修复后的防护脚本】：修复UTF-8解码Bug，移除误杀检测 -->
   <script>
-    // 1. 页面加载：解密敏感字段（爬虫抓取源码看到的是 &#xE002;... 乱码）
+    // 1. 动态安全解码函数（支持 UTF-8 中文字符）
+    function safeDecodeBase64(b64) {
+      try {
+        return decodeURIComponent(escape(window.atob(b64)));
+      } catch (e) {
+        return b64;
+      }
+    }
+
+    // 2. 页面加载完成解密渲染
     document.addEventListener('DOMContentLoaded', function () {
       var elements = document.querySelectorAll('.sec-data');
       elements.forEach(function (el) {
         var raw = el.getAttribute('data-v');
         if (raw) {
-          try {
-            el.innerHTML = decodeURIComponent(window.atob(raw));
-          } catch (e) { }
+          el.innerHTML = safeDecodeBase64(raw);
         }
       });
     });
 
-    // 2. 反调试：无限 debugger 压制（打开开发者工具会直接卡死/暂停）
+    // 3. 反调试：无限 debugger 压制（尝试打开控制台时会自动停顿/卡死）
     setInterval(function () {
       (function () {
         return false;
       })['constructor']('debugger')['call']('action');
     }, 200);
-
-    // 3. 反调试：开发者工具开启检测
-    setInterval(function () {
-      var threshold = 160;
-      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
-        document.body.innerHTML = '<div style="text-align:center;margin-top:120px;font-size:22px;color:#f00;font-family:sans-serif;">检测到非法调试行为，页面访问已终止。</div>';
-      }
-    }, 500);
 
     // 4. 禁用右键菜单
     document.addEventListener('contextmenu', function (e) {
@@ -380,7 +378,7 @@
       e.preventDefault();
     });
 
-    // 6. 拦截 F12 / Ctrl+Shift+I / Ctrl+U / Ctrl+S 等调试快捷键
+    // 6. 拦截 F12 / Ctrl+Shift+I / Ctrl+U 等调试快捷键
     document.addEventListener('keydown', function (e) {
       if (e.key === 'F12' || e.keyCode === 123) {
         e.preventDefault();
