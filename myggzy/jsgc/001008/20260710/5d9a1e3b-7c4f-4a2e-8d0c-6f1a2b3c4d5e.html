@@ -32,7 +32,7 @@
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
 
-      /* 1. 防护： CSS 禁用文本选择 */
+      /* 防护：CSS 禁用文本选择 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -316,11 +316,10 @@
     </div>
   </div>
 
-  <!-- 【综合加固脚本】：反调试 + 隐形水印 + 动态解密 + 交互拦截 -->
+  <!-- 【加固脚本】：反调试 + 动态解密 + 交互拦截 -->
   <script>
-    // 1. 页面加载：解密数据 + 注入动态隐形背景水印
+    // 1. 页面加载：解密敏感数据
     document.addEventListener('DOMContentLoaded', function () {
-      // 执行数据解密
       var elements = document.querySelectorAll('.sec-data');
       elements.forEach(function (el) {
         var raw = el.getAttribute('data-v');
@@ -330,33 +329,16 @@
           } catch (e) { }
         }
       });
-
-      // 动态生成隐形水印，防止用户截图泄露
-      addWatermark('绵阳公共资源交易服务中心 · 严禁爬取');
     });
 
-    // 2. 隐形背景水印渲染函数
-    function addWatermark(text) {
-      var canvas = document.createElement('canvas');
-      canvas.width = 300;
-      canvas.height = 180;
-      var ctx = canvas.getContext('2d');
-      ctx.rotate(-20 * Math.PI / 180);
-      ctx.font = '14px Microsoft YaHei';
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.035)'; // 极低透明度
-      ctx.fillText(text, 10, 100);
-      var watermarkUrl = canvas.toDataURL('image/png');
-      document.body.style.backgroundImage = 'url(' + watermarkUrl + ')';
-    }
-
-    // 3. 反调试：无限 debugger 压制（打开开发者工具会直接停顿/卡死）
+    // 2. 反调试：无限 debugger 压制（打开开发者工具会停止/卡死）
     setInterval(function () {
       (function () {
         return false;
       })['constructor']('debugger')['call']('action');
     }, 200);
 
-    // 4. 反调试：控制台开启检测（通过外框与内框尺寸差判断 DevTools 开启）
+    // 3. 反调试：开发者工具开启检测
     setInterval(function () {
       var threshold = 160;
       if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
@@ -364,12 +346,12 @@
       }
     }, 500);
 
-    // 5. 禁用右键
+    // 4. 禁用右键菜单
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
-    // 6. 禁用划选与复制
+    // 5. 禁用划选与复制
     document.addEventListener('selectstart', function (e) {
       e.preventDefault();
     });
@@ -377,7 +359,7 @@
       e.preventDefault();
     });
 
-    // 7. 拦截 F12 / Ctrl+Shift+I / Ctrl+U 等快捷键
+    // 6. 拦截 F12 / Ctrl+Shift+I / Ctrl+U 等调试快捷键
     document.addEventListener('keydown', function (e) {
       if (e.key === 'F12' || e.keyCode === 123) {
         e.preventDefault();
