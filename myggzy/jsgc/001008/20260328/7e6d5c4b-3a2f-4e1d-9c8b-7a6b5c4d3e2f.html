@@ -33,7 +33,7 @@
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
 
-      /* 防护：CSS 禁用鼠标划选/选中文字 */
+      /* 【防护 1】：CSS 禁用鼠标划选/选中文字 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -256,7 +256,7 @@
 
           <div class="infor-tip">
             <p class="tip-text max text-overflow">信息来源：</p>
-            <p class="tip-text">信息时间：<span class="sec-data" data-v="MjAyNi0wMy0yOA==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE02D;&#xE000;&#xE003;&#xE02D;&#xE002;&#xE008;</span></p>
+            <p class="tip-text">信息时间：2026-03-28</p>
             <p class="tip-text" id="viewGuid">阅读次数：<span id="infoViewCount">135</span></p>
             <p class="tip-text esp">
               <a class="opt-name" href="javascript:void(0)" onclick="window.print()">打印</a>
@@ -306,16 +306,15 @@
                   </td>
                   <td class="excel-grid-td">四川九洲建筑工程有限责任公司</td>
                   <td class="excel-grid-td"></td>
-                  <!-- 已修正为 201721612.13元 正确密文 -->
-                  <td class="excel-grid-td"><span class="sec-data" data-v="MjAxNzIxNjEyLjEzNWYWD">&#xE002;&#xE000;&#xE001;&#xE007;&#xE002;&#xE001;&#xE006;&#xE001;&#xE002;&#xE02E;&#xE001;&#xE003;&#xE6E5;</span></td>
-                  <td class="excel-grid-td"><span class="sec-data" data-v="MzY1">&#xE003;&#xE006;&#xE005;</span></td>
+                  <td class="excel-grid-td">201721612.13元</td>
+                  <td class="excel-grid-td">365</td>
                 </tr>
 
                 <tr>
                   <td colspan="6" class="excel-time-td">
                     <div class="time-flex">
-                      <div>公告开始时间：<span class="sec-data" data-v="MjAyNubztDPmnIgyOOaXpQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE003;&#xE69C;&#xE802;&#xE008;&#xE697;&#xE9A5;</span></div>
-                      <div>公告结束时间：<span class="sec-data" data-v="MjAyNubztDTznIgwMuaXpQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE5B9;&#xE4A4;&#xE004;&#xE69C;&#xE800;&#xE002;&#xE697;&#xE9A5;</span></div>
+                      <div>公告开始时间：2026年3月28日</div>
+                      <div>公告结束时间：2026年4月02日</div>
                     </div>
                     <div style="text-align: center; margin-top: 10px;">发布媒体：全国公共资源交易平台（四川省）和全国公共资源交易平台（四川省-绵阳市）</div>
                   </td>
@@ -337,41 +336,21 @@
     </div>
   </div>
 
-  <!-- 【防护脚本】：安全解码 + 反调试 + 交互拦截 -->
+  <!-- 【前端防护脚本】：防右键/防复制/防快捷键 + 无限 Debugger 反调试 -->
   <script>
-    // 1. 动态安全解码函数（支持标准 UTF-8 中文字符）
-    function safeDecodeBase64(b64) {
-      try {
-        return decodeURIComponent(escape(window.atob(b64)));
-      } catch (e) {
-        return b64;
-      }
-    }
-
-    // 2. 页面加载完成解密渲染
-    document.addEventListener('DOMContentLoaded', function () {
-      var elements = document.querySelectorAll('.sec-data');
-      elements.forEach(function (el) {
-        var raw = el.getAttribute('data-v');
-        if (raw) {
-          el.innerHTML = safeDecodeBase64(raw);
-        }
-      });
-    });
-
-    // 3. 反调试：无限 debugger 压制（打开控制台时会自动停顿/卡死）
+    // 1. 无限 debugger 压制（阻止打开 DevTools 进行代码调试与审查）
     setInterval(function () {
       (function () {
         return false;
       })['constructor']('debugger')['call']('action');
     }, 200);
 
-    // 4. 禁用右键菜单
+    // 2. 禁用右键菜单
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
-    // 5. 禁用文本划选与复制
+    // 3. 禁用文本划选与复制
     document.addEventListener('selectstart', function (e) {
       e.preventDefault();
     });
@@ -379,7 +358,7 @@
       e.preventDefault();
     });
 
-    // 6. 拦截 F12 / Ctrl+Shift+I / Ctrl+U 等调试快捷键
+    // 4. 拦截 F12 / Ctrl+Shift+I / Ctrl+U / Ctrl+S 等调试快捷键
     document.addEventListener('keydown', function (e) {
       if (e.key === 'F12' || e.keyCode === 123) {
         e.preventDefault();
