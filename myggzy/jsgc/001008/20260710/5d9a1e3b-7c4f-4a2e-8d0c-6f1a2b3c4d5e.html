@@ -29,11 +29,10 @@
     body {
       color: #333;
       font-size: 14px;
-      /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
 
-      /* 【新增：禁用鼠标划选/选中文字】 */
+      /* 1. 防护： CSS 禁用文本选择 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -229,7 +228,6 @@
                   <td style="border:1px solid #000; padding:8px; text-align:center;">招标人</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳新兴投资控股有限公司</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
-                  <!-- 爬虫抓取源码看到的是 &#xE001;&#xE005;... 伪乱码，浏览器加载后由 JS 解密 -->
                   <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MTU4ODM3NzU2OTI=">&#xE001;&#xE005;&#xE008;&#xE008;&#xE003;&#xE007;&#xE007;&#xE005;&#xE006;&#xE009;&#xE002;</span></td>
                 </tr>
                 <tr>
@@ -318,28 +316,60 @@
     </div>
   </div>
 
-  <!-- 【防护脚本】：解密渲染 + 禁用右键/选中/快捷键防调试 -->
+  <!-- 【综合加固脚本】：反调试 + 隐形水印 + 动态解密 + 交互拦截 -->
   <script>
-    // 1. 页面加载完成后解密数据并替换占位符（爬虫拿到的是纯乱码，真实用户显示正常文本）
+    // 1. 页面加载：解密数据 + 注入动态隐形背景水印
     document.addEventListener('DOMContentLoaded', function () {
+      // 执行数据解密
       var elements = document.querySelectorAll('.sec-data');
       elements.forEach(function (el) {
         var raw = el.getAttribute('data-v');
         if (raw) {
           try {
-            // 解码真实数据
             el.innerHTML = decodeURIComponent(escape(window.atob(raw)));
           } catch (e) { }
         }
       });
+
+      // 动态生成隐形水印，防止用户截图泄露
+      addWatermark('绵阳公共资源交易服务中心 · 严禁爬取');
     });
 
-    // 2. 禁用右键菜单
+    // 2. 隐形背景水印渲染函数
+    function addWatermark(text) {
+      var canvas = document.createElement('canvas');
+      canvas.width = 300;
+      canvas.height = 180;
+      var ctx = canvas.getContext('2d');
+      ctx.rotate(-20 * Math.PI / 180);
+      ctx.font = '14px Microsoft YaHei';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.035)'; // 极低透明度
+      ctx.fillText(text, 10, 100);
+      var watermarkUrl = canvas.toDataURL('image/png');
+      document.body.style.backgroundImage = 'url(' + watermarkUrl + ')';
+    }
+
+    // 3. 反调试：无限 debugger 压制（打开开发者工具会直接停顿/卡死）
+    setInterval(function () {
+      (function () {
+        return false;
+      })['constructor']('debugger')['call']('action');
+    }, 200);
+
+    // 4. 反调试：控制台开启检测（通过外框与内框尺寸差判断 DevTools 开启）
+    setInterval(function () {
+      var threshold = 160;
+      if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+        document.body.innerHTML = '<div style="text-align:center;margin-top:120px;font-size:22px;color:#f00;font-family:sans-serif;">检测到非法调试行为，页面访问已终止。</div>';
+      }
+    }, 500);
+
+    // 5. 禁用右键
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
-    // 3. 禁用文本选中与复制事件
+    // 6. 禁用划选与复制
     document.addEventListener('selectstart', function (e) {
       e.preventDefault();
     });
@@ -347,19 +377,16 @@
       e.preventDefault();
     });
 
-    // 4. 拦截常见开发者工具与源码快捷键
+    // 7. 拦截 F12 / Ctrl+Shift+I / Ctrl+U 等快捷键
     document.addEventListener('keydown', function (e) {
-      // 禁用 F12
       if (e.key === 'F12' || e.keyCode === 123) {
         e.preventDefault();
         return false;
       }
-      // 禁用 Ctrl+Shift+I / J / C (打开开发者工具)
       if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
         e.preventDefault();
         return false;
       }
-      // 禁用 Ctrl+U (查看源码) 和 Ctrl+S (保存网页)
       if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
         e.preventDefault();
         return false;
