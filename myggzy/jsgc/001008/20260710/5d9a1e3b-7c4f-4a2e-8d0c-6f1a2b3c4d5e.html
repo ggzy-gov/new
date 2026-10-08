@@ -229,17 +229,18 @@
                   <td style="border:1px solid #000; padding:8px; text-align:center;">招标人</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳新兴投资控股有限公司</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">15883775692</td>
+                  <!-- 爬虫抓取源码看到的是 &#xE001;&#xE005;... 伪乱码，浏览器加载后由 JS 解密 -->
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MTU4ODM3NzU2OTI=">&#xE001;&#xE005;&#xE008;&#xE008;&#xE003;&#xE007;&#xE007;&#xE005;&#xE006;&#xE009;&#xE002;</span></td>
                 </tr>
                 <tr>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">招标代理机构</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">四川坐标工程项目管理有限公司</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">0816-2389539</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MDgxNi0yMzg5NTM5">&#xE000;&#xE008;&#xE001;&#xE006;&#xE02D;&#xE002;&#xE003;&#xE008;&#xE009;&#xE005;&#xE003;&#xE009;</span></td>
                 </tr>
                 <tr>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">开标时间</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026-06-23 09:30:00</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MjAyNi0wNi0yMyAwOTozMDowMA==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE02D;&#xE000;&#xE006;&#xE02D;&#xE002;&#xE003;</span></td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">开标地点</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳市公共资源交易服务中心</td>
                 </tr>
@@ -247,19 +248,19 @@
                   <td style="border:1px solid #000; padding:8px; text-align:center;">中标单位</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">四川九洲建筑工程有限责任公司</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">中标通知书发出日期</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026-07-09</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MjAyNi0wNy0wOQ==">&#xE002;&#xE000;&#xE002;&#xE006;&#xE02D;&#xE000;&#xE007;&#xE02D;&#xE000;&#xE009;</span></td>
                 </tr>
                 <tr>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">招标控制价（元）</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">1556390672.190000</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MTU1NjM5MDY3Mi4xOTAwMDA=">&#xE001;&#xE005;&#xE005;&#xE006;&#xE003;&#xE009;&#xE000;&#xE006;&#xE007;&#xE002;&#xE02E;&#xE001;&#xE009;</span></td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">中标金额（元/%）</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">1545276725.43</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="MTU0NTI3NjcyNS40Mw==">&#xE001;&#xE005;&#xE004;&#xE005;&#xE002;&#xE007;&#xE006;&#xE007;&#xE002;&#xE005;&#xE02E;&#xE004;&#xE003;</span></td>
                 </tr>
                 <tr>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">质量</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">合格</td>
                   <td style="border:1px solid #000; padding:8px; text-align:center;">工期（交货期）</td>
-                  <td style="border:1px solid #000; padding:8px; text-align:center;">720天</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;"><span class="sec-data" data-v="NzIw44KB">&#xE007;&#xE002;&#xE000;&#xE6E5;</span></td>
                 </tr>
                 <tr>
                   <td rowspan="6" style="border:1px solid #000; padding:8px; text-align:center;">评标委员会（四川省评标专家）成员名单</td>
@@ -317,14 +318,28 @@
     </div>
   </div>
 
-  <!-- 【新增防护脚本】：禁用右键、选中文本、复制以及 F12/快捷键查看源码 -->
+  <!-- 【防护脚本】：解密渲染 + 禁用右键/选中/快捷键防调试 -->
   <script>
-    // 1. 禁用右键菜单
+    // 1. 页面加载完成后解密数据并替换占位符（爬虫拿到的是纯乱码，真实用户显示正常文本）
+    document.addEventListener('DOMContentLoaded', function () {
+      var elements = document.querySelectorAll('.sec-data');
+      elements.forEach(function (el) {
+        var raw = el.getAttribute('data-v');
+        if (raw) {
+          try {
+            // 解码真实数据
+            el.innerHTML = decodeURIComponent(escape(window.atob(raw)));
+          } catch (e) { }
+        }
+      });
+    });
+
+    // 2. 禁用右键菜单
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
-    // 2. 禁用文本选中与复制事件
+    // 3. 禁用文本选中与复制事件
     document.addEventListener('selectstart', function (e) {
       e.preventDefault();
     });
@@ -332,7 +347,7 @@
       e.preventDefault();
     });
 
-    // 3. 拦截常见开发者工具与源码快捷键
+    // 4. 拦截常见开发者工具与源码快捷键
     document.addEventListener('keydown', function (e) {
       // 禁用 F12
       if (e.key === 'F12' || e.keyCode === 123) {
