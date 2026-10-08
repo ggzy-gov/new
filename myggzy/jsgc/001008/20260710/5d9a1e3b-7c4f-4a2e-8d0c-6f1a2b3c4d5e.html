@@ -32,8 +32,8 @@
       /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
       font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #fff;
-      
-      /* 【新增：禁用文字鼠标选中/划选】 */
+
+      /* 【新增：禁用鼠标划选/选中文字】 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -133,61 +133,13 @@
     .sub-title {
       text-align: center;
       font-size: 1.5em;
-      font-weight: bold;
+      font-weight: normal;
       margin: 20px 0;
     }
 
-    /* ---------- 精准还原 Excel 排版的表格样式 ---------- */
-    .excel-layout-table {
-      width: 100%;
-      border-collapse: collapse;
+    /* ---------- 表格样式 ---------- */
+    table {
       font-size: 16px;
-      color: #333;
-    }
-
-    /* 1. 顶部基本信息行：依照Excel，完全不要边框，靠左对齐，留出合适间距 */
-    .excel-meta-td {
-      border: none;
-      padding: 7px 0;
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    /* 2. 中间核心数据网格：依照Excel，四周带 1px 纯黑细边框 */
-    .excel-grid-th {
-      border: 1px solid #000;
-      padding: 10px 8px;
-      text-align: center;
-      font-weight: normal;
-      /* Excel中表头字重为常规体 */
-      background-color: #fff;
-    }
-
-    .excel-grid-td {
-      border: 1px solid #000;
-      padding: 12px 8px;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    /* 项目名称强制换行包裹器 */
-    .project-name-wrap {
-      display: inline-block;
-      text-align: center;
-      word-break: break-all;
-    }
-
-    /* 3. 底部时间公示行：依照Excel，只有顶部有一条黑细线隔开，四周无边框 */
-    .excel-time-td {
-      border: none;
-      border-top: 1px solid #000;
-      padding: 14px 0 0 0;
-    }
-
-    .time-flex {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
     }
 
     /* ---------- 附件列表 ---------- */
@@ -240,10 +192,6 @@
       display: table;
       clear: both;
     }
-
-    .excel-meta-td {
-      padding-left: 20px;
-    }
   </style>
 </head>
 
@@ -253,12 +201,12 @@
       <div class="notice tabview">
         <div class="notice-bd">
 
-          <h3 class="infor-tt">新型显示产业园A区电力增容及基础设施项目施工标段中标公示</h3>
+          <h3 class="infor-tt">绵阳高新区(科技城直管区)永兴城中村改造配套基础设施项目中标结果公告</h3>
 
           <div class="infor-tip">
             <p class="tip-text max text-overflow">信息来源：</p>
-            <p class="tip-text">信息时间：2026-03-28</p>
-            <p class="tip-text" id="viewGuid">阅读次数：<span id="infoViewCount">135</span></p>
+            <p class="tip-text">信息时间：2026-07-10</p>
+            <p class="tip-text" id="viewGuid">阅读次数：<span id="infoViewCount">125</span></p>
             <p class="tip-text esp">
               <a class="opt-name" href="javascript:void(0)" onclick="window.print()">打印</a>
               <a class="opt-name" href="javascript:void(0)" onclick="window.close()">关闭</a>
@@ -266,59 +214,90 @@
           </div>
 
           <div class="infor-con">
-            <div class="sub-title">中标结果公告</div>
+            <div class="sub-title">
+              绵阳高新区(科技城直管区)永兴城中村改造配套基础设施项目/绵阳高新区(科技城直管区)永兴城中村改造配套基础设施项目中标结果公告
+            </div>
 
-            <table class="excel-layout-table">
+            <table style="width:100%; border-collapse:collapse; margin:0 auto; border:1px solid #000;">
               <tbody>
                 <tr>
-                  <td colspan="6" class="excel-meta-td">项目名称：新型显示产业园A区电力增容及基础设施项目</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">项目及标段名称</td>
+                  <td colspan="3" style="border:1px solid #000; padding:8px; text-align:center;">
+                    绵阳高新区(科技城直管区)永兴城中村改造配套基础设施项目</td>
                 </tr>
                 <tr>
-                  <td colspan="6" class="excel-meta-td">招标人：绵阳新兴投资控股股份有限公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标人</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳新兴投资控股有限公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">15883775692</td>
                 </tr>
                 <tr>
-                  <td colspan="6" class="excel-meta-td">
-                    <span style="margin-right: 70px;">项目类别：施工</span>
-                    <span>招标方式：公开招标</span>
-                  </td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标代理机构</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">四川坐标工程项目管理有限公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">0816-2389539</td>
                 </tr>
                 <tr>
-                  <td colspan="6" class="excel-meta-td">项目地点：四川省绵阳科技城新区（高新区）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">开标时间</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026-06-23 09:30:00</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">开标地点</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳市公共资源交易服务中心</td>
                 </tr>
                 <tr>
-                  <td colspan="6" class="excel-meta-td" style="padding-bottom: 15px;">项目所在区域：四川省·绵阳市·科技城新区（高新区）
-                    建设面积：124900平方米</td>
-                </tr>
-
-                <tr>
-                  <th style="width: 18%;" class="excel-grid-th">序号</th>
-                  <th style="width: 25%;" class="excel-grid-th">项目名称</th>
-                  <th style="width: 20%;" class="excel-grid-th">中标单位</th>
-                  <th style="width: 12%;" class="excel-grid-th">项目经理</th>
-                  <th style="width: 12%;" class="excel-grid-th">中标价</th>
-                  <th style="width: 12%;" class="excel-grid-th">工期(天)</th>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标单位</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">四川九洲建筑工程有限责任公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标通知书发出日期</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026-07-09</td>
                 </tr>
                 <tr>
-                  <td class="excel-grid-td">1</td>
-                  <td class="excel-grid-td">
-                    <div class="project-name-wrap">
-                      新型显示产业园A区电力<br>增容及基础设施项目
-                    </div>
-                  </td>
-                  <td class="excel-grid-td">四川九洲建筑工程有限责任公司</td>
-                  <td class="excel-grid-td"></td>
-                  <td class="excel-grid-td">201721612.13元</td>
-                  <td class="excel-grid-td">365</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标控制价（元）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">1556390672.190000</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标金额（元/%）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">1545276725.43</td>
                 </tr>
-
                 <tr>
-                  <td colspan="6" class="excel-time-td">
-                    <div class="time-flex">
-                      <div>公告开始时间：2026年3月28日</div>
-                      <div>公告结束时间2026年4月02日</div>
-                    </div>
-                    <div style="text-align: center; margin-top: 10px;">发布媒体：全国公共资源交易平台（四川省）和全国公共资源交易平台（四川省-绵阳市）</div>
-                  </td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">质量</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">合格</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">工期（交货期）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">720天</td>
+                </tr>
+                <tr>
+                  <td rowspan="6" style="border:1px solid #000; padding:8px; text-align:center;">评标委员会（四川省评标专家）成员名单</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">姓名</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">单位</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">胡磊</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">黄静</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">杨贤</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">阳信英</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">万一翔</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td rowspan="3" style="border:1px solid #000; padding:8px; text-align:center;">评标委员会（招标人代表）成员名单</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">姓名</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">单位</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">古发清</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">四川坐标工程项目管理有限公司</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">曾涛</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">四川坐标工程项目管理有限公司</td>
                 </tr>
               </tbody>
             </table>
@@ -327,17 +306,18 @@
           <div class="file-box clearfix">
             <p class="file-tt">附件:</p>
             <div class="file-con">
-              <p class="file-name"><a href="javascript:void(0)" title="中标结果公示.pdf">中标结果公示.pdf</a></p>
-              <p class="file-name"><a href="javascript:void(0)" title="施工中标通知书.pdf">施工中标通知书.pdf</a></p>
-              <p class="file-name"><a href="javascript:void(0)" title="施工结果公告.pdf">施工结果公告.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="中标通知书.jpg">中标通知书.jpg</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="中标结果公告.pdf">中标结果公告.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="中标结果公告.pdf">中标结果公告.pdf</a></p>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 【新增防护脚本】：禁用右键、选中文本、复制以及 F12/开发者工具快捷键 -->
+  <!-- 【新增防护脚本】：禁用右键、选中文本、复制以及 F12/快捷键查看源码 -->
   <script>
     // 1. 禁用右键菜单
     document.addEventListener('contextmenu', function (e) {
@@ -352,7 +332,7 @@
       e.preventDefault();
     });
 
-    // 3. 拦截常用调试与源码查看快捷键
+    // 3. 拦截常见开发者工具与源码快捷键
     document.addEventListener('keydown', function (e) {
       // 禁用 F12
       if (e.key === 'F12' || e.keyCode === 123) {
@@ -364,7 +344,7 @@
         e.preventDefault();
         return false;
       }
-      // 禁用 Ctrl+U (查看网页源代码) 和 Ctrl+S (保存网页)
+      // 禁用 Ctrl+U (查看源码) 和 Ctrl+S (保存网页)
       if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
         e.preventDefault();
         return false;
