@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>绵阳市公共资源交易服务中心</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght=400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- 全局重置 ---------- */
+    body,
+    div,
+    h3,
+    p,
+    td,
+    th {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-spacing: 0;
+    }
+
+    h3 {
+      font-weight: normal;
+    }
+
+    body {
+      color: #333;
+      font-size: 14px;
+      /* 主字体：优先使用 Noto Sans SC（即思源黑体），回退到系统黑体 */
+      font-family: "Noto Sans SC", "SourceHanSansCN-Regular", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      /* CSS 级别禁止用户选中与复制 */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- 主容器 ---------- */
+    .container {
+      width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ---------- 公告框 ---------- */
+    .infor-box {
+      margin-bottom: 32px;
+      padding: 0 40px 30px 40px;
+      border-top: 2px solid #6dbdff;
+      background-color: #fff;
+      position: relative;
+    }
+
+    /* ---------- 公告标题 ---------- */
+    .infor-tt {
+      padding-top: 27px;
+      padding-bottom: 30px;
+      line-height: 43px;
+      font-size: 24px;
+      font-family: "Noto Sans SC", "SourceHanSansCN-Medium", "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-weight: 500;
+      color: #333;
+      text-align: center;
+    }
+
+    /* ---------- 信息栏灰色条 ---------- */
+    .infor-tip {
+      height: 50px;
+      font-size: 0;
+      background-color: #f7f7f7;
+      text-align: center;
+    }
+
+    .tip-text {
+      margin-left: 80px;
+      max-width: 250px;
+      display: inline-block;
+      vertical-align: top;
+      line-height: 50px;
+      font-size: 16px;
+      color: #999;
+    }
+
+    .tip-text.max {
+      max-width: 185px;
+    }
+
+    .tip-text.esp {
+      position: relative;
+    }
+
+    /* 右侧竖线分隔符 */
+    .tip-text.esp::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      margin-left: -1px;
+      top: 50%;
+      margin-top: -9px;
+      width: 2px;
+      height: 18px;
+      background-color: #3d7adc;
+    }
+
+    .tip-text:first-child {
+      margin-left: 0;
+    }
+
+    .opt-name {
+      margin-left: 33px;
+      color: #3d7adc;
+      cursor: pointer;
+    }
+
+    .opt-name:first-child {
+      margin-left: 0;
+    }
+
+    /* ---------- 正文区域 ---------- */
+    .infor-con {
+      padding-top: 14px;
+    }
+
+    .sub-title {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: normal;
+      margin: 20px 0;
+    }
+
+    /* ---------- 表格样式 ---------- */
+    table {
+      font-size: 16px;
+    }
+
+    /* ---------- 附件列表 ---------- */
+    .file-box {
+      margin-top: 24px;
+      padding: 6px 0 8px 20px;
+      background-color: #f7f7f7;
+    }
+
+    .file-tt {
+      float: left;
+      height: 38px;
+      line-height: 38px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .file-con {
+      margin-left: 47px;
+      overflow: hidden;
+    }
+
+    .file-name {
+      float: left;
+      margin-right: 79px;
+      padding-left: 24px;
+      height: 38px;
+      line-height: 38px;
+      background: url(data:,) left center no-repeat;
+    }
+
+    .file-name>a {
+      font-size: 16px;
+      color: #53a9f5;
+      cursor: pointer;
+    }
+
+    .file-name:hover {
+      background-image: url(data:,);
+    }
+
+    .file-name:hover>a {
+      color: #ff9555;
+      text-decoration: underline;
+    }
+
+    /* ---------- 清除浮动 ---------- */
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="infor-box">
+      <div class="notice tabview">
+        <div class="notice-bd">
+
+          <h3 class="infor-tt">绵阳科技城新区数字经济产业园二期基础设施项目中标结果公告</h3>
+
+          <div class="infor-tip">
+            <p class="tip-text max text-overflow">信息来源：</p>
+            <p class="tip-text">信息时间：2026.06.18</p>
+            <p class="tip-text" id="viewGuid">阅读次数：<span id="infoViewCount">56</span></p>
+            <p class="tip-text esp">
+              <a class="opt-name" href="javascript:void(0)">打印</a>
+              <a class="opt-name" href="javascript:void(0)">关闭</a>
+            </p>
+          </div>
+
+          <div class="infor-con">
+            <div class="sub-title">
+              绵阳科技城新区数字经济产业园二期基础设施项目/绵阳科技城新区数字经济产业园二期基础设施项目中标结果公告
+            </div>
+
+            <table style="width:100%; border-collapse:collapse; margin:0 auto; border:1px solid #000;">
+              <tbody>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">项目及标段名称</td>
+                  <td colspan="3" style="border:1px solid #000; padding:8px; text-align:center;">
+                    绵阳科技城新区数字经济产业园二期基础设施项目</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标人</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳科技城新区新投产业发展有限责任公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">0816-6982705</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标代理机构</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">四川喜邦招标代理有限公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">联系方式</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">135 5080 1552</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">开标时间</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026.06.11</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">开标地点</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳市公共资源交易服务中心</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标单位</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">绵阳新投建设有限公司</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标通知书发出日期</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">2026.06.18</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">招标控制价（元）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">1373549958.20</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">中标金额（元/%）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">1367884980.00</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">质量</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">合格</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">工期（交货期）</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">1096</td>
+                </tr>
+                <tr>
+                  <td rowspan="6" style="border:1px solid #000; padding:8px; text-align:center;">评标委员会（四川省评标专家）成员名单</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">姓名</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">单位</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">刘素琼</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">瞿高飞</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">白天祥</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">肖红梅</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">侯 建</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">/</td>
+                </tr>
+                <tr>
+                  <td rowspan="3" style="border:1px solid #000; padding:8px; text-align:center;">评标委员会（招标人代表）成员名单</td>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">姓名</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">单位</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">莫 红</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">四川喜邦招标代理有限公司</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000; padding:8px; text-align:center;">田 江</td>
+                  <td colspan="2" style="border:1px solid #000; padding:8px; text-align:center;">四川喜邦招标代理有限公司</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="file-box clearfix">
+            <p class="file-tt">附件:</p>
+            <div class="file-con">
+              <p class="file-name"><a href="javascript:void(0)" title="中标结果公告.pdf">中标结果公告.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="中标通知书.pdf">中标通知书.pdf</a></p>
+              <p class="file-name"><a href="javascript:void(0)" title="中标结果公告.pdf">中标结果公告.pdf</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 防爬虫/防调试/防复制脚本 -->
+  <script>
+    (function () {
+      // 1. 禁用鼠标右键菜单
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // 2. 禁用鼠标划词选中、文本复制与剪切
+      document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+        return false;
+      });
+      document.addEventListener('copy', function (e) {
+        e.preventDefault();
+        return false;
+      });
+      document.addEventListener('cut', function (e) {
+        e.preventDefault();
+        return false;
+      });
+      document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // 3. 禁用 F12 及常见控制台快捷键
+      document.addEventListener('keydown', function (e) {
+        // 禁用 F12
+        if (e.keyCode === 123 || e.key === 'F12') {
+          e.preventDefault();
+          return false;
+        }
+
+        var isCtrlOrCmd = e.ctrlKey || e.metaKey;
+
+        // 禁用 Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C (开发者工具/控制台/审查元素)
+        if (isCtrlOrCmd && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // 禁用 Ctrl+U (查看网页源代码)
+        if (isCtrlOrCmd && (e.key === 'U' || e.key === 'u')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // 禁用 Ctrl+S (保存网页)
+        if (isCtrlOrCmd && (e.key === 'S' || e.key === 's')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // 禁用 Ctrl+C (复制快捷键)
+        if (isCtrlOrCmd && (e.key === 'C' || e.key === 'c')) {
+          e.preventDefault();
+          return false;
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
